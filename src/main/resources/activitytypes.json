@@ -1,6 +1,6 @@
 [
-  { "id": "t1", "name": "quiz" },
-  { "id": "t2", "name": "assignment" },
-  { "id": "t3", "name": "project" },
-  { "id": "t4", "name": "presentation" }
+  { "id": "at1", "name": "quiz" },
+  { "id": "at2", "name": "assignment" },
+  { "id": "at3", "name": "project" },
+  { "id": "at4", "name": "presentation" }
 ]

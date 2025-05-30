@@ -8,6 +8,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,6 +30,13 @@ public class EvalPlan {
     private List<String> commentIds; // References to Comments
 
     private String createdAt;  // ISO-8601 timestamp
+
+        // These are not persisted — just used for returning full details
+    @Transient
+    private List<Activity> activities;
+
+    @Transient
+    private List<Comment> comments;
 
 
 }

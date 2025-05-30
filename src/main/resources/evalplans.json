@@ -5,8 +5,8 @@
     "authorId": "Prof. John",
     "name": "Algebra Basics",
     "likes": ["user1", "user2"],
-    "activityIds": ["act1", "act2"],
-    "commentIds": ["com1", "com2"],
+    "activityIds": ["a1", "a2"],
+    "commentIds": ["c1", "c2"],
     "createdAt": "2025-05-30T12:00:00Z"
   },
   {
