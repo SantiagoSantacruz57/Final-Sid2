@@ -1,4 +1,4 @@
-package com.example.demo.controllers;
+package com.example.demo.RestControllers;
 
 import java.util.List;
 
@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Subject;
-import com.example.demo.services.SubjectService;
+import com.example.demo.model.Group;
+import com.example.demo.services.GroupService;
 
 @RestController
-@RequestMapping("/subjects")
-public class SubjectController {
+@RequestMapping("/groups")
+public class GroupController {
     
     @Autowired 
-    private SubjectService service;
-    @GetMapping public List<Subject> list() { return service.findAll(); }
+    private GroupService service;
+    @GetMapping public List<Group> list() { return service.findAll(); }
 }

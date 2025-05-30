@@ -1,4 +1,4 @@
-package com.example.demo.controllers;
+package com.example.demo.RestControllers;
 
 import java.util.List;
 
@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Employee;
-import com.example.demo.services.EmployeeService;
+import com.example.demo.model.Faculty;
+import com.example.demo.services.FacultyService;
 
 @RestController
-@RequestMapping("/employees")
-public class EmployeeController {
+@RequestMapping("/faculties")
+public class FacultyController {
     
     @Autowired 
-    private EmployeeService service;
-    @GetMapping public List<Employee> list() { return service.findAll(); }
+    private FacultyService service;
+    @GetMapping public List<Faculty> list() { return service.findAll(); }
 }

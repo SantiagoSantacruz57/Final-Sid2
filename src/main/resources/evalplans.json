@@ -1,0 +1,22 @@
+[
+  {
+    "id": "plan1",
+    "subjectId": "Math",
+    "authorId": "Prof. John",
+    "name": "Algebra Basics",
+    "likes": ["user1", "user2"],
+    "activityIds": ["act1", "act2"],
+    "commentIds": ["com1", "com2"],
+    "createdAt": "2025-05-30T12:00:00Z"
+  },
+  {
+    "id": "plan2",
+    "subjectId": "Science",
+    "authorId": "Dr. Alice",
+    "name": "Physics Intro",
+    "likes": [],
+    "activityIds": [],
+    "commentIds": [],
+    "createdAt": "2025-05-29T09:30:00Z"
+  }
+]

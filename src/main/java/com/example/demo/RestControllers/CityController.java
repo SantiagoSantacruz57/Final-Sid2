@@ -1,4 +1,4 @@
-package com.example.demo.controllers;
+package com.example.demo.RestControllers;
 
 import java.util.List;
 
@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Area;
-import com.example.demo.services.AreaService;
+import com.example.demo.model.City;
+import com.example.demo.services.CityService;
 
 
 @RestController
-@RequestMapping("/areas")
-public class AreaController {
+@RequestMapping("/cities")
+public class CityController {
     
     @Autowired 
-    private AreaService service;
-    @GetMapping public List<Area> list() { return service.findAll(); }
+    private CityService service;
+    @GetMapping public List<City> list() { return service.findAll(); }
 }

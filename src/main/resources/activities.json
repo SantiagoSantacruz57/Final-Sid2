@@ -1,0 +1,23 @@
+[
+  {
+    "id": "a1",
+    "type": "quiz",
+    "name": "Quiz 1",
+    "description": "Basic algebra quiz",
+    "percentage": "20"
+  },
+  {
+    "id": "a2",
+    "type": "assignment",
+    "name": "Homework 1",
+    "description": "Linear equations",
+    "percentage": "30"
+  },
+  {
+    "id": "a3",
+    "type": "project",
+    "name": "Science Fair",
+    "description": "Build a model",
+    "percentage": "50"
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "id": "c1",
+    "user": "user1",
+    "content": "Great version"
+  },
+  {
+    "id": "c2",
+    "user": "user2",
+    "content": "Needs improvements"
+  }
+]
