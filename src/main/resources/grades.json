@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "activityId": "act101",
+    "userId": "userA",
+    "score": 85
+  },
+  {
+    "id": "2",
+    "activityId": "act102",
+    "userId": "userB",
+    "score": 92
+  },
+  {
+    "id": "3",
+    "activityId": "act101",
+    "userId": "userC",
+    "score": 78
+  },
+  {
+    "id": "4",
+    "activityId": "act103",
+    "userId": "userA",
+    "score": 88
+  },
+  {
+    "id": "5",
+    "activityId": "act104",
+    "userId": "userD",
+    "score": 95
+  }
+]

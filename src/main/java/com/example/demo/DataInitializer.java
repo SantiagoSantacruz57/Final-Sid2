@@ -12,10 +12,12 @@ import com.example.demo.mongoModel.Activity;
 import com.example.demo.mongoModel.ActivityType;
 import com.example.demo.mongoModel.Comment;
 import com.example.demo.mongoModel.EvalPlan;
+import com.example.demo.mongoModel.Grade;
 import com.example.demo.mongoRepository.ActivityRepository;
 import com.example.demo.mongoRepository.ActivityTypeRepository;
 import com.example.demo.mongoRepository.CommentRepository;
 import com.example.demo.mongoRepository.EvalPlanRepository;
+import com.example.demo.mongoRepository.GradeRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import jakarta.annotation.PostConstruct;
@@ -35,6 +37,9 @@ public class DataInitializer {
     @Autowired
     private CommentRepository commentRepo;
 
+    @Autowired
+    private GradeRepository gradeRepo;
+
     private final ObjectMapper mapper = new ObjectMapper();
 
     @PostConstruct
@@ -45,6 +50,7 @@ public class DataInitializer {
             activityRepo.deleteAll();
             activityTypeRepo.deleteAll();
             commentRepo.deleteAll();
+            gradeRepo.deleteAll();
 
             // Load from JSON
             List<EvalPlan> plans = Arrays.asList(
@@ -59,12 +65,16 @@ public class DataInitializer {
             List<Comment> comments = Arrays.asList(
                 mapper.readValue(new File("src/main/resources/comments.json"), Comment[].class)
             );
+            List<Grade> grades = Arrays.asList(
+                mapper.readValue(new File("src/main/resources/grades.json"), Grade[].class)
+            );
 
             // Save them
             evalPlanRepo.saveAll(plans);
             activityRepo.saveAll(activities);
             activityTypeRepo.saveAll(activityTypes);
             commentRepo.saveAll(comments);
+            gradeRepo.saveAll(grades);
 
         } catch (IOException e) {
             e.printStackTrace();

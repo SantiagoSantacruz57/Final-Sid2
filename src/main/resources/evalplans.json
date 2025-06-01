@@ -18,5 +18,15 @@
     "activityIds": [],
     "commentIds": [],
     "createdAt": "2025-05-29T09:30:00Z"
+  },
+  {
+    "id": "plan3",
+    "subjectId": "BasesDatos",
+    "authorId": "prof.linares",
+    "name": "Plan Evaluativo BD 2025-1",
+    "likes": ["user1", "user2", "user3"],
+    "activityIds": ["a1", "a2", "a3"],
+    "commentIds": ["c1", "c2"],
+    "createdAt": "2025-05-30T12:00:00Z"
   }
 ]

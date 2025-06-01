@@ -17,5 +17,9 @@ public class Grade {
 
     private String activityId;  
 
+    private String userId;
+    
     private int score;    
+
+
 }
