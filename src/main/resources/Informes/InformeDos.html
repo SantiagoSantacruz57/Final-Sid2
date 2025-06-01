@@ -1,0 +1,74 @@
+<!-- resources/Informes/InformeDos.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Informe Nota Mínima</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f6fb;
+            padding: 40px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        table {
+            width: 90%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #e67e22;
+            color: white;
+        }
+        tr:hover {
+            background-color: #fdf2e9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Notas mínimas requeridas para aprobar</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Estudiante</th>
+                <th>Curso</th>
+                <th>Actividades restantes</th>
+                <th>Nota mínima necesaria</th>
+            </tr>
+        </thead>
+        <tbody id="informeDosBody"></tbody>
+    </table>
+
+    <script>
+        fetch('/api/informes/nota-minima')
+            .then(res => res.json())
+            .then(data => {
+                const tbody = document.getElementById("informeDosBody");
+                let rows = "";
+                data.forEach(item => {
+                    rows += `
+                        <tr>
+                            <td>${item.estudiante || ""}</td>
+                            <td>${item.curso || ""}</td>
+                            <td>${typeof item.actividadesRestantes === "number" ? item.actividadesRestantes.toFixed(2) + "%" : ""}</td>
+                            <td>${typeof item.notaMinimaNecesaria === "number" ? item.notaMinimaNecesaria.toFixed(2) : ""}</td>
+                        </tr>
+                    `;
+                });
+                tbody.innerHTML = rows;
+            })
+            .catch(error => console.error("Error cargando informe dos:", error));
+
+    </script>
+</body>
+</html>

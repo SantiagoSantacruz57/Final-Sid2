@@ -8,5 +8,15 @@
     "id": "c2",
     "user": "user2",
     "content": "Needs improvements"
+  },
+  {
+    "id": "c3",
+    "user": "user3",
+    "content": "Muy completo y bien explicado."
+  },
+  {
+    "id": "c4",
+    "user": "user4",
+    "content": "Faltó incluir ejercicios prácticos."
   }
 ]
