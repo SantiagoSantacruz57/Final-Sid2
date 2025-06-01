@@ -1,4 +1,3 @@
-# Proyecto Persistencia Polígolota - Sistema de Comentarios
 
 ## 👥 Integrantes
 
