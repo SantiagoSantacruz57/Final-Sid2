@@ -25,4 +25,7 @@ public class InformeRestController {
     public List<Map<String, Object>> obtenerNotaMinimaRequerida() {
         return informeService.getNotaMinimaRequeridaParaAprobar();
     }
+
+    
+
 }

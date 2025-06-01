@@ -13,11 +13,11 @@ public class InformeController {
 
     @GetMapping("/informeUno")
     public String verInformeUno() {
-        return "Informes/InformeUno";
+        return "forward:Informes/InformeUno.html";
     }
 
     @GetMapping("/informeDos")
     public String verInformeDos() {
-        return "Informes/InformeDos";
+        return "forward:Informes/InformeDos.html";
     }
 }

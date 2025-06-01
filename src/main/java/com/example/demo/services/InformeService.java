@@ -89,4 +89,15 @@ public class InformeService {
 
         return resultado;
     }
+
+
+    public List<Map<String, Object>> getConsolidadoNotasPorEstudiante(String id) {
+        
+        List<Map<String, Object>> resultado = new ArrayList<>();
+        
+
+
+
+        return resultado;
+    }
 }

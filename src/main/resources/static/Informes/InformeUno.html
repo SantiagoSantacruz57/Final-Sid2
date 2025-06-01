@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Informe Consolidado - Trackademic</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="trackademic-nav">
+            <div class="nav-brand">
+                <a href="/"><i class="fas fa-graduation-cap"></i> Trackademic</a>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link"><i class="fas fa-home"></i> Inicio</a>
+                <a href="/planes-evaluacion" class="nav-link"><i class="fas fa-clipboard-list"></i> Planes</a>
+                <a href="/dashboard" class="nav-link disabled"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="/mis-notas" class="nav-link disabled"><i class="fas fa-calculator"></i> Mis Notas</a>
+            </div>
+        </nav>
+
+        <!-- Header -->
+        <header class="page-header">
+            <h1><i class="fas fa-file-alt"></i> Informe Consolidado de Notas</h1>
+            <p>Resumen de notas finales por estudiante, curso y semestre</p>
+            <div class="breadcrumb">
+                <a href="/">Inicio</a> <i class="fas fa-chevron-right"></i> <span>Informe Consolidado</span>
+            </div>
+        </header>
+
+        <!-- Informe Content -->
+        <div class="informe-content">
+            <section class="eval-plans-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-table"></i> Consolidado de Notas</h2>
+                    <p>Consulta los resultados agrupados por estudaiante</p>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Estudiante</th>
+                                <th>Curso</th>
+                                <th>Grupo</th>
+                                <th>Semestre</th>
+                                <th>Nota Final</th>
+                            </tr>
+                        </thead>
+                        <tbody id="informeUnoBody">
+                            <!-- Datos cargados dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer class="page-footer">
+            <p><i class="fas fa-info-circle"></i> Este informe refleja los datos disponibles hasta la fecha de consulta.</p>
+        </footer>
+    </div>
+
+    <script>
+        fetch('/api/informes/consolidado')
+            .then(res => res.json())
+            .then(data => {
+                const tbody = document.getElementById("informeUnoBody");
+                let rows = "";
+                data.forEach(item => {
+                    rows += `
+                        <tr>
+                            <td>${item.estudiante || ""}</td>
+                            <td>${item.curso || ""}</td>
+                            <td>${item.grupo || ""}</td>
+                            <td>${item.semestre || ""}</td>
+                            <td>${typeof item.notaFinal === "number" ? item.notaFinal.toFixed(2) : ""}</td>
+                        </tr>
+                    `;
+                });
+                tbody.innerHTML = rows;
+            })
+            .catch(error => console.error("Error cargando informe uno:", error));
+    </script>
+    <script src="js/app.js"></script>
+</body>
+</html>
