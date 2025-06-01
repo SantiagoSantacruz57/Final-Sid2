@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planes de Evaluación - Trackademic</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="trackademic-nav">
+            <div class="nav-brand">
+                <a href="/"><i class="fas fa-graduation-cap"></i> Trackademic</a>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link"><i class="fas fa-home"></i> Inicio</a>
+                <a href="/planes-evaluacion" class="nav-link active"><i class="fas fa-clipboard-list"></i> Planes</a>
+                <a href="/dashboard" class="nav-link disabled"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="/mis-notas" class="nav-link disabled"><i class="fas fa-calculator"></i> Mis Notas</a>
+            </div>
+        </nav>
+
+        <!-- Header -->
+        <header class="page-header">
+            <h1><i class="fas fa-clipboard-list"></i> Planes de Evaluación</h1>
+            <p>Explora los planes de evaluación de las materias y comparte experiencias con otros estudiantes</p>
+            <div class="breadcrumb">
+                <a href="/">Inicio</a> <i class="fas fa-chevron-right"></i> <span>Planes de Evaluación</span>
+            </div>
+        </header>
+
+        <!-- Info Banner -->
+        <section class="info-banner">
+            <div class="banner-content">
+                <div class="banner-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <div class="banner-text">
+                    <h3>¿Cómo funciona?</h3>
+                    <p>Selecciona un plan de evaluación para ver sus actividades, porcentajes y comentarios de otros estudiantes. ¡Comparte tus experiencias para ayudar a futuros compañeros!</p>
+                </div>
+            </div>
+        </section>
+
+        <main>
+            <!-- Sección de Planes de Evaluación -->
+            <section class="eval-plans-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-list-alt"></i> Planes Disponibles</h2>
+                    <p>Haz clic en un plan para ver detalles y comentarios</p>
+                </div>
+                <div id="evalPlansContainer" class="plans-container">
+                    <!-- Los planes se cargarán dinámicamente -->
+                </div>
+            </section>
+
+            <!-- Sección de Comentarios -->
+            <section class="comments-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-comments"></i> Comentarios y Experiencias</h2>
+                    <p>Lee las experiencias de otros estudiantes y comparte las tuyas</p>
+                </div>
+                
+                <div id="selectedPlanInfo" class="plan-info">
+                    <div class="empty-state">
+                        <i class="fas fa-mouse-pointer"></i>
+                        <h3>Selecciona un plan de evaluación</h3>
+                        <p>Haz clic en cualquier plan de la izquierda para ver sus comentarios y agregar tu experiencia</p>
+                    </div>
+                </div>
+                
+                <!-- Formulario para agregar comentario -->
+                <div id="addCommentForm" class="comment-form" style="display: none;">
+                    <h3><i class="fas fa-plus-circle"></i> Comparte tu Experiencia</h3>
+                    <p class="form-description">Ayuda a otros estudiantes compartiendo tips, dificultades y estrategias para este plan de evaluación</p>
+                    <form id="commentForm">
+                        <div class="form-group">
+                            <label for="userName"><i class="fas fa-user"></i> Tu nombre o alias:</label>
+                            <input type="text" id="userName" required placeholder="Ej: María_2024, Carlos_Ing, etc.">
+                        </div>
+                        <div class="form-group">
+                            <label for="commentContent"><i class="fas fa-comment-dots"></i> Tu experiencia:</label>
+                            <textarea id="commentContent" required placeholder="Ej: 'El Quiz MER es más difícil de lo que parece, estudien bien las cardinalidades...'"></textarea>
+                            <small class="helper-text">Comparte tips, dificultades, estrategias de estudio, cambios en fechas, etc.</small>
+                        </div>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-paper-plane"></i> Compartir Experiencia
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Lista de comentarios -->
+                <div id="commentsContainer" class="comments-container">
+                    <!-- Los comentarios se cargarán dinámicamente -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="page-footer">
+            <p><i class="fas fa-info-circle"></i> Los comentarios son compartidos por estudiantes y pueden no reflejar cambios recientes en los planes</p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html> 

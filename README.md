@@ -1,11 +1,10 @@
-Integrantes:
 
-Damy Villegas
+## 👥 Integrantes
 
-Samuel Dominguez
+- Damy Villegas
+- Samuel Dominguez
+- Santiago Santacruz
+- Alejandro Troya
+- Juan Esteban Gomez
 
-Santiago Santacruz
-
-Alejandro Troya
-
-Juan Esteban Gomez
+---
