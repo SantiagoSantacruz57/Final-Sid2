@@ -2,12 +2,17 @@ package com.example.demo.controller;
 
 import java.util.Optional;
 
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.model.User;
 import com.example.demo.repositories.UserRepository;
@@ -29,21 +34,36 @@ public class AuthController {
         return "auth/register";
     }
 
-    @PostMapping("/login/{username}/{password}")
-    public String processLogin(@PathVariable String username, @PathVariable String password) {
+    @PostMapping("/login")
+    @ResponseBody
+    public ResponseEntity<String> processLogin(@RequestParam String username, @RequestParam String password) {
 
         Optional<User> user = userRepository.findByName(username);
+
         if (user.isPresent() && user.get().getPassword().equals(password)) {
-            // Lógica de inicio de sesión exitosa
-            return "redirect:/dashboard";
+            return ResponseEntity.ok("Login successful");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
         }
-        // Lógica de inicio de sesión fallido
-        return "redirect:/auth/login";
     }
 
     @PostMapping("/register")
-    public String processRegister() {
-        // TODO: Implementar lógica de registro
+    public String processRegister(@RequestParam Long id,
+                                @RequestParam String username,
+                                @RequestParam String password,
+                                @RequestParam String confirmPassword) {
+
+        if (!password.equals(confirmPassword)) {
+            // You should ideally return with an error attribute to show on the form
+            return "register";
+        }
+
+        User newUser = new User();
+        newUser.setId(id); // only if needed
+        newUser.setName(username);
+        newUser.setPassword(password);
+        userRepository.save(newUser);
+
         return "redirect:/auth/login";
     }
-} 
+}
