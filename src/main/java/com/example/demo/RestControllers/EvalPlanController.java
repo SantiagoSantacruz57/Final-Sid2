@@ -73,4 +73,25 @@ public class EvalPlanController {
             return ResponseEntity.noContent().build();
         }).orElse(ResponseEntity.notFound().build());
     }
+
+    // Get eval plans with filters
+    @GetMapping("/filter")
+    public List<EvalPlan> getFilteredEvalPlans(
+            @RequestParam(required = false) String subjectId,
+            @RequestParam(required = false) Integer minLikes,
+            @RequestParam(required = false) String createdAt // ISO-8601 string, e.g. "2024-06-01"
+    ) {
+        List<EvalPlan> plans = evalPlanRepository.findAll();
+        return plans.stream()
+                .filter(plan -> subjectId == null || subjectId.equals(plan.getSubjectId()))
+                .filter(plan -> minLikes == null || (plan.getLikes() != null && plan.getLikes().size() >= minLikes))
+                .filter(plan -> {
+                    if (createdAt == null) return true;
+                    if (plan.getCreatedAt() == null) return false;
+                    // Compare only the date part (yyyy-MM-dd)
+                    String planDate = plan.getCreatedAt().length() >= 10 ? plan.getCreatedAt().substring(0, 10) : plan.getCreatedAt();
+                    return planDate.equals(createdAt);
+                })
+                .toList();
+    }
 }
