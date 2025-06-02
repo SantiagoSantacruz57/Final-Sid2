@@ -52,7 +52,7 @@
                     <h4 class="text-center mb-4">Sistema de Gestión</h4>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="/dashboard">
+                            <a id="dashboard-link" class="nav-link" href="#">
                                 <i class="bi bi-house-door me-2"></i>Dashboard
                             </a>
                         </li>
@@ -115,5 +115,36 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+        <script>
+        const link = document.getElementById("dashboard-link");
+        const username = localStorage.getItem("username");
+
+        if (username) {
+            link.href = `/dashboard?name=${encodeURIComponent(username)}`;
+            
+            fetch("/api/user/get-id", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name: username })
+            })
+            .then(res => {
+                if (!res.ok) throw new Error("User not found");
+                return res.json();
+            })
+            .then(id => {
+                localStorage.setItem("userId", id);
+            })
+            .catch(err => {
+                console.error(err.message);
+            });
+
+        } else {
+            link.href = "/auth/login";
+        }
+        </script>
+
 </body>
 </html> 

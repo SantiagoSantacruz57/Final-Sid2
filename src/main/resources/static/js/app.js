@@ -226,6 +226,8 @@ function showMessage(type, message) {
     }, 5000);
 }
 
+
+
 function formatDate(dateString) {
     if (!dateString) return 'Fecha no disponible';
     

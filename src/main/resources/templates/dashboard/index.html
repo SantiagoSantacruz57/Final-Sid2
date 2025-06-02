@@ -57,7 +57,7 @@
                     <h4 class="text-center mb-4">Sistema de Gestión</h4>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="/dashboard">
+                            <a id="dashboard-link" class="nav-link" href="#">
                                 <i class="bi bi-house-door me-2"></i>Dashboard
                             </a>
                         </li>
@@ -96,6 +96,12 @@
                                     <span class="badge bg-primary" th:text="${subject.code}">Código</span>
                                 </div>
                                 <p class="card-text" th:text="${subject.program.name}">Programa</p>
+                                <div class="text-end">
+                                    <a class="btn btn-sm btn-outline-primary"
+                                    th:href="@{/subjects/{code}/evaluation(code=${subject.code})}">
+                                        Ver Plan de Evaluación
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -112,5 +118,38 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  
+    document.addEventListener("DOMContentLoaded", () => {
+        const link = document.getElementById("dashboard-link");
+        const username = localStorage.getItem("username");
+        console.log("Username from localStorage:", username);
+        if (username) {
+
+            link.href = `/dashboard?name=${encodeURIComponent(username)}`;
+        } else {
+            link.href = "/auth/login";  // fallback if no username is stored
+        }
+    });
+
+    fetch("/api/user/get-id", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: username })
+    })
+    .then(res => {
+        if (!res.ok) throw new Error("User not found");
+        return res.json();
+    })
+    .then(id => {
+        console.log("User ID is:", id);
+        localStorage.setItem("userId", id);
+    })
+    .catch(err => {
+        console.error(err.message);
+    });
+</script>
+
 </body>
 </html> 

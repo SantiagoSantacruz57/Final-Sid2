@@ -75,9 +75,7 @@
                     </div>
                     <h3>Dashboard Personal</h3>
                     <p>Ve el resumen de todas tus materias.</p>
-                    <a href="/dashboard" class="feature-btn">
-                        <i class="fas fa-clock"></i> Revisar tus materias
-                    </a>
+                    <a href="#" id="dashboard-link" class="feature-btn">Ir al Dashboard</a>
                 </div>
 
                 <!-- Gestión de Notas -->
@@ -146,6 +144,24 @@
         </footer>
     </div>
     <script src="js/app.js"></script>
+
+    <script> 
+       
+    document.addEventListener("DOMContentLoaded", () => {
+        const link = document.getElementById("dashboard-link");
+        const username = localStorage.getItem("username");
+
+        if (username) {
+            link.href = `/dashboard?name=${encodeURIComponent(username)}`;
+        } else {
+            link.href = "/auth/login"; // fallback or show login page
+        }
+    });
+
+    </script>
+
+
+
 </body>
 
 </html> 
