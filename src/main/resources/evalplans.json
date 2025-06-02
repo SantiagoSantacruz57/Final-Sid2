@@ -1,32 +1,82 @@
 [
   {
-    "id": "plan1",
-    "subjectId": "Math",
-    "authorId": "Prof. John",
-    "name": "Algebra Basics",
-    "likes": ["user1", "user2"],
-    "activityIds": ["a1", "a2"],
+    "id": "plan-PSI-1001",
+    "subjectId": "PSI-1001",
+    "authorId": "1001",
+    "name": "Plan Evaluativo Psicología General 2025-1",
+    "likes": ["1", "4"],
+    "activityIds": ["a-PSI-1001-1", "a-PSI-1001-2", "a-PSI-1001-3"],
     "commentIds": ["c1", "c2"],
     "createdAt": "2025-05-30T12:00:00Z"
   },
   {
-    "id": "plan2",
-    "subjectId": "Science",
-    "authorId": "Dr. Alice",
-    "name": "Physics Intro",
-    "likes": [],
-    "activityIds": [],
-    "commentIds": [],
+    "id": "plan-PSI-1002",
+    "subjectId": "PSI-1002",
+    "authorId": "1003",
+    "name": "Plan Evaluativo Psicología del Desarrollo 2025-1",
+    "likes": ["2", "5"],
+    "activityIds": ["a-PSI-1002-1", "a-PSI-1002-2", "a-PSI-1002-3", "a-PSI-1002-4"],
+    "commentIds": ["c3", "c4"],
     "createdAt": "2025-05-29T09:30:00Z"
   },
   {
-    "id": "plan3",
-    "subjectId": "BasesDatos",
-    "authorId": "prof.linares",
-    "name": "Plan Evaluativo BD 2025-1",
-    "likes": ["user1", "user2", "user3"],
-    "activityIds": ["a1", "a2", "a3"],
-    "commentIds": ["c1", "c2"],
-    "createdAt": "2025-05-30T12:00:00Z"
+    "id": "plan-PSI-2001",
+    "subjectId": "PSI-2001",
+    "authorId": "1004",
+    "name": "Plan Evaluativo Psicología Social 2025-1",
+    "likes": ["1", "2", "3"],
+    "activityIds": ["a-PSI-2001-1", "a-PSI-2001-2", "a-PSI-2001-3"],
+    "commentIds": ["c5", "c6"],
+    "createdAt": "2025-05-28T08:45:00Z"
+  },
+  {
+    "id": "plan-PSI-2002",
+    "subjectId": "PSI-2002",
+    "authorId": "1005",
+    "name": "Plan Evaluativo Psicología Clínica 2025-1",
+    "likes": ["4"],
+    "activityIds": ["a-PSI-2002-1", "a-PSI-2002-2", "a-PSI-2002-3"],
+    "commentIds": ["c7", "c8"],
+    "createdAt": "2025-05-27T14:10:00Z"
+  },
+  {
+    "id": "plan-ISIS-1001",
+    "subjectId": "ISIS-1001",
+    "authorId": "1001",
+    "name": "Plan Evaluativo Introducción a la Programación 2025-1",
+    "likes": ["2", "3", "5"],
+    "activityIds": ["a-ISIS-1001-1", "a-ISIS-1001-2", "a-ISIS-1001-3"],
+    "commentIds": ["c9", "c10"],
+    "createdAt": "2025-05-26T11:30:00Z"
+  },
+  {
+    "id": "plan-ISIS-1002",
+    "subjectId": "ISIS-1002",
+    "authorId": "1003",
+    "name": "Plan Evaluativo Fundamentos de Programación 2025-1",
+    "likes": ["1"],
+    "activityIds": ["a-ISIS-1002-1", "a-ISIS-1002-2", "a-ISIS-1002-3"],
+    "commentIds": ["c11", "c12"],
+    "createdAt": "2025-05-25T15:20:00Z"
+  },
+  {
+    "id": "plan-ISIS-2001",
+    "subjectId": "ISIS-2001",
+    "authorId": "1004",
+    "name": "Plan Evaluativo Estructuras de Datos 2025-1",
+    "likes": ["3", "4"],
+    "activityIds": ["a-ISIS-2001-1", "a-ISIS-2001-2", "a-ISIS-2001-3"],
+    "commentIds": ["c13", "c14"],
+    "createdAt": "2025-05-24T10:05:00Z"
+  },
+  {
+    "id": "plan-ISIS-2002",
+    "subjectId": "ISIS-2002",
+    "authorId": "1005",
+    "name": "Plan Evaluativo Bases de Datos 2025-1",
+    "likes": ["5"],
+    "activityIds": ["a-ISIS-2002-1", "a-ISIS-2002-2", "a-ISIS-2002-3"],
+    "commentIds": ["c15", "c16"],
+    "createdAt": "2025-05-23T09:00:00Z"
   }
 ]

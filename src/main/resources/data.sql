@@ -155,6 +155,37 @@ INSERT INTO GROUPS (number, semester, subject_code, professor_id) VALUES
 (2, '2023-2', 'ISIS-1001', '1003'),
 (3, '2023-2', 'ISIS-1002', '1004');
 
+-- Insert UserSubjects (assign users to subjects)
+INSERT INTO USER_SUBJECTS (user_id, subject_code) VALUES
+(1, 'PSI-1001'),
+(1, 'ISIS-1001'),
+(2, 'PSI-1002'),
+(2, 'ISIS-1002'),
+(3, 'PSI-2001'),
+(3, 'ISIS-2001'),
+(4, 'PSI-2002'),
+(4, 'ISIS-2002'),
+(5, 'ISIS-3001'),
+(5, 'ISIS-3002'),
+
+(1, 'IND-1001'),
+(2, 'IND-1002'),
+(3, 'IND-2001'),
+(4, 'IND-2002'),
+(5, 'CIV-1001'),
+
+(1, 'CIV-1002'),
+(2, 'CIV-2001'),
+(3, 'CIV-2002'),
+(4, 'ELE-1001'),
+(5, 'ELE-1002'),
+
+(1, 'ELE-2001'),
+(2, 'ELE-2002'),
+(3, 'MEC-1001'),
+(4, 'MEC-1002'),
+(5, 'MEC-2001');
+
 -- Re-enable triggers (foreign key constraints)
 ALTER TABLE AREAS ENABLE TRIGGER ALL;
 ALTER TABLE SUBJECTS ENABLE TRIGGER ALL;

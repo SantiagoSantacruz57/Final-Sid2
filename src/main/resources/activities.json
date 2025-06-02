@@ -1,26 +1,202 @@
 [
   {
-    "id": "a1",
-    "typeId": "quiz",
-    "subjectId": "s1",
+    "id": "a-PSI-1001-1",
+    "typeId": "at1",
+    "subjectId": "PSI-1001",
     "name": "Quiz 1",
-    "description": "Basic algebra quiz",
+    "description": "Quiz básico sobre Psicología General",
     "percentage": "20"
   },
   {
-    "id": "a2",
-    "typeId": "assignment",
-    "subjectId": "s1",
-    "name": "Homework 1",
-    "description": "Linear equations",
+    "id": "a-PSI-1001-2",
+    "typeId": "at2",
+    "subjectId": "PSI-1001",
+    "name": "Tarea 1",
+    "description": "Ensayo sobre teorías psicológicas",
     "percentage": "30"
   },
   {
-    "id": "a3",
-    "typeId": "project",
-    "subjectId": "s1",
-    "name": "Science Fair",
-    "description": "Build a model",
+    "id": "a-PSI-1001-3",
+    "typeId": "at3",
+    "subjectId": "PSI-1001",
+    "name": "Proyecto final",
+    "description": "Análisis de caso clínico",
+    "percentage": "50"
+  },
+  {
+    "id": "a-PSI-1002-1",
+    "typeId": "at1",
+    "subjectId": "PSI-1002",
+    "name": "Quiz 1",
+    "description": "Cuestionario sobre desarrollo humano",
+    "percentage": "15"
+  },
+  {
+    "id": "a-PSI-1002-2",
+    "typeId": "at2",
+    "subjectId": "PSI-1002",
+    "name": "Tarea 1",
+    "description": "Reflexión escrita",
+    "percentage": "25"
+  },
+  {
+    "id": "a-PSI-1002-3",
+    "typeId": "at4",
+    "subjectId": "PSI-1002",
+    "name": "Presentación",
+    "description": "Exposición sobre etapas del desarrollo",
+    "percentage": "20"
+  },
+  {
+    "id": "a-PSI-1002-4",
+    "typeId": "at3",
+    "subjectId": "PSI-1002",
+    "name": "Proyecto final",
+    "description": "Trabajo grupal",
+    "percentage": "40"
+  },
+  {
+    "id": "a-PSI-2001-1",
+    "typeId": "at1",
+    "subjectId": "PSI-2001",
+    "name": "Quiz 1",
+    "description": "Cuestionario de Psicología Social",
+    "percentage": "25"
+  },
+  {
+    "id": "a-PSI-2001-2",
+    "typeId": "at2",
+    "subjectId": "PSI-2001",
+    "name": "Tarea 1",
+    "description": "Ensayo sobre interacciones sociales",
+    "percentage": "25"
+  },
+  {
+    "id": "a-PSI-2001-3",
+    "typeId": "at3",
+    "subjectId": "PSI-2001",
+    "name": "Proyecto final",
+    "description": "Estudio de caso social",
+    "percentage": "50"
+  },
+  {
+    "id": "a-PSI-2002-1",
+    "typeId": "at2",
+    "subjectId": "PSI-2002",
+    "name": "Tarea 1",
+    "description": "Reporte clínico",
+    "percentage": "30"
+  },
+  {
+    "id": "a-PSI-2002-2",
+    "typeId": "at4",
+    "subjectId": "PSI-2002",
+    "name": "Presentación",
+    "description": "Exposición de casos clínicos",
+    "percentage": "20"
+  },
+  {
+    "id": "a-PSI-2002-3",
+    "typeId": "at3",
+    "subjectId": "PSI-2002",
+    "name": "Proyecto final",
+    "description": "Intervención psicológica",
+    "percentage": "50"
+  },
+  {
+    "id": "a-ISIS-1001-1",
+    "typeId": "at1",
+    "subjectId": "ISIS-1001",
+    "name": "Quiz 1",
+    "description": "Quiz de Introducción a la Programación",
+    "percentage": "20"
+  },
+  {
+    "id": "a-ISIS-1001-2",
+    "typeId": "at2",
+    "subjectId": "ISIS-1001",
+    "name": "Tarea 1",
+    "description": "Ejercicios básicos de programación",
+    "percentage": "30"
+  },
+  {
+    "id": "a-ISIS-1001-3",
+    "typeId": "at3",
+    "subjectId": "ISIS-1001",
+    "name": "Proyecto final",
+    "description": "Programa simple",
+    "percentage": "50"
+  },
+  {
+    "id": "a-ISIS-1002-1",
+    "typeId": "at1",
+    "subjectId": "ISIS-1002",
+    "name": "Quiz 1",
+    "description": "Fundamentos de programación",
+    "percentage": "25"
+  },
+  {
+    "id": "a-ISIS-1002-2",
+    "typeId": "at2",
+    "subjectId": "ISIS-1002",
+    "name": "Tarea 1",
+    "description": "Prácticas con algoritmos",
+    "percentage": "25"
+  },
+  {
+    "id": "a-ISIS-1002-3",
+    "typeId": "at3",
+    "subjectId": "ISIS-1002",
+    "name": "Proyecto final",
+    "description": "Desarrollo de aplicación pequeña",
+    "percentage": "50"
+  },
+  {
+    "id": "a-ISIS-2001-1",
+    "typeId": "at1",
+    "subjectId": "ISIS-2001",
+    "name": "Quiz 1",
+    "description": "Estructuras de datos básicas",
+    "percentage": "20"
+  },
+  {
+    "id": "a-ISIS-2001-2",
+    "typeId": "at2",
+    "subjectId": "ISIS-2001",
+    "name": "Tarea 1",
+    "description": "Implementación de listas y pilas",
+    "percentage": "30"
+  },
+  {
+    "id": "a-ISIS-2001-3",
+    "typeId": "at3",
+    "subjectId": "ISIS-2001",
+    "name": "Proyecto final",
+    "description": "Proyecto con estructuras de datos",
+    "percentage": "50"
+  },
+  {
+    "id": "a-ISIS-2002-1",
+    "typeId": "at1",
+    "subjectId": "ISIS-2002",
+    "name": "Quiz 1",
+    "description": "Fundamentos de bases de datos",
+    "percentage": "25"
+  },
+  {
+    "id": "a-ISIS-2002-2",
+    "typeId": "at2",
+    "subjectId": "ISIS-2002",
+    "name": "Tarea 1",
+    "description": "Consultas SQL básicas",
+    "percentage": "25"
+  },
+  {
+    "id": "a-ISIS-2002-3",
+    "typeId": "at3",
+    "subjectId": "ISIS-2002",
+    "name": "Proyecto final",
+    "description": "Diseño de base de datos",
     "percentage": "50"
   }
 ]

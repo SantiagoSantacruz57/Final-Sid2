@@ -1,4 +1,7 @@
 const username = localStorage.getItem('username');
+if (!username) {
+  window.location.href = '/auth/login';
+}
 console.log(username);  // Outputs: user1
 
 // Estado global de la aplicación
