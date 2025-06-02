@@ -21,7 +21,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public String processLogin() {
-        // TODO: Implementar lógica de login
+        
         return "redirect:/dashboard";
     }
 

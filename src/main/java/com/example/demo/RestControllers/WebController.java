@@ -24,12 +24,7 @@ public class WebController {
         return "redirect:/planes-evaluacion";
     }
     
-    // Dashboard del estudiante (para futuras funcionalidades)
-    @GetMapping("/dashboard")
-    public String dashboard() {
-        return "forward:/dashboard.html";
-    }
-    
+
     // Gestión de notas (para futuras funcionalidades) 
     @GetMapping("/mis-notas")
     public String misNotas() {
