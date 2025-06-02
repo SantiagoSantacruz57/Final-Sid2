@@ -8,6 +8,7 @@ let selectedPlanId = null;
 const API_BASE = window.location.origin;
 const API_ENDPOINTS = {
     evalPlans: `${API_BASE}/evalplans`,
+    evalPlansFilter: `${API_BASE}/evalplans/filter`,
     comments: `${API_BASE}/comments`,
     addComment: (planId) => `${API_BASE}/comments/evalplan/${planId}`,
     planComments: (planId) => `${API_BASE}/comments/evalplan/${planId}`
@@ -19,6 +20,8 @@ const selectedPlanInfo = document.getElementById('selectedPlanInfo');
 const addCommentForm = document.getElementById('addCommentForm');
 const commentForm = document.getElementById('commentForm');
 const commentsContainer = document.getElementById('commentsContainer');
+const filterForm = document.getElementById('filterForm');
+const clearFiltersBtn = document.getElementById('clearFilters');
 
 // Inicializar la aplicación
 document.addEventListener('DOMContentLoaded', function() {
@@ -26,14 +29,28 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Configurar el formulario de comentarios
     commentForm.addEventListener('submit', handleCommentSubmit);
+    
+    // Configurar el formulario de filtros
+    filterForm.addEventListener('submit', handleFilterSubmit);
+    clearFiltersBtn.addEventListener('click', clearFilters);
 });
 
-// Cargar todos los planes de evaluación
-async function loadEvalPlans() {
+// Cargar planes de evaluación con filtros
+async function loadEvalPlans(filters = {}) {
     try {
         showLoading(evalPlansContainer, 'Cargando planes de evaluación...');
         
-        const response = await fetch(API_ENDPOINTS.evalPlans);
+        let url = API_ENDPOINTS.evalPlans;
+        if (Object.keys(filters).length > 0) {
+            url = API_ENDPOINTS.evalPlansFilter;
+            const params = new URLSearchParams();
+            if (filters.subjectId) params.append('subjectId', filters.subjectId);
+            if (filters.minLikes) params.append('minLikes', filters.minLikes);
+            if (filters.createdAt) params.append('createdAt', filters.createdAt);
+            url += `?${params.toString()}`;
+        }
+        
+        const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`Error: ${response.status}`);
         }
@@ -193,6 +210,30 @@ async function handleCommentSubmit(event) {
         submitButton.innerHTML = originalText;
         submitButton.disabled = false;
     }
+}
+
+// Manejar envío del formulario de filtros
+function handleFilterSubmit(event) {
+    event.preventDefault();
+    
+    const filters = {
+        subjectId: document.getElementById('subjectFilter').value.trim(),
+        minLikes: document.getElementById('likesFilter').value,
+        createdAt: document.getElementById('dateFilter').value
+    };
+    
+    // Eliminar filtros vacíos
+    Object.keys(filters).forEach(key => {
+        if (!filters[key]) delete filters[key];
+    });
+    
+    loadEvalPlans(filters);
+}
+
+// Limpiar filtros
+function clearFilters() {
+    filterForm.reset();
+    loadEvalPlans();
 }
 
 // Utilidades
