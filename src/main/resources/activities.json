@@ -1,21 +1,24 @@
 [
   {
     "id": "a1",
-    "type": "quiz",
+    "typeId": "quiz",
+    "subjectId": "s1",
     "name": "Quiz 1",
     "description": "Basic algebra quiz",
     "percentage": "20"
   },
   {
     "id": "a2",
-    "type": "assignment",
+    "typeId": "assignment",
+    "subjectId": "s1",
     "name": "Homework 1",
     "description": "Linear equations",
     "percentage": "30"
   },
   {
     "id": "a3",
-    "type": "project",
+    "typeId": "project",
+    "subjectId": "s1",
     "name": "Science Fair",
     "description": "Build a model",
     "percentage": "50"

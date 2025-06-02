@@ -1,3 +1,9 @@
+// Save data
+localStorage.setItem('user', 'user1');
+// Retrieve data on another page or reload
+const user = localStorage.getItem('user');
+console.log(user);  // Outputs: user1
+
 // Estado global de la aplicación
 let selectedPlanId = null;
 

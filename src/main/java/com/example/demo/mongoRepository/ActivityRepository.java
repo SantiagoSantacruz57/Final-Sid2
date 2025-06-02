@@ -6,4 +6,6 @@ import com.example.demo.mongoModel.Activity;
 
 public interface ActivityRepository extends MongoRepository<Activity, String> {
 
+    void findBySubjectId(String string);
+
 }
