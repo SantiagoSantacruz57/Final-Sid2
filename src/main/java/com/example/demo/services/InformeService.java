@@ -1,10 +1,15 @@
 package com.example.demo.services;
 
+import com.example.demo.mongoModel.Activity;
+import com.example.demo.mongoModel.ActivityType;
 import com.example.demo.mongoModel.Grade;
+import com.example.demo.mongoRepository.ActivityRepository;
+import com.example.demo.mongoRepository.ActivityTypeRepository;
 import com.example.demo.mongoRepository.GradeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 @Service
@@ -12,6 +17,12 @@ public class InformeService {
 
     @Autowired
     private GradeRepository gradeRepository;
+
+    @Autowired
+    private ActivityRepository activityRepository;
+
+    @Autowired
+    private ActivityTypeRepository activityTypeRepository;
 
     // Informe 1: Consolidado de notas por estudiante
     public List<Map<String, Object>> getConsolidadoNotasPorEstudiante() {
@@ -91,13 +102,39 @@ public class InformeService {
     }
 
 
-    public List<Map<String, Object>> getConsolidadoNotasPorEstudiante(String id) {
-        
-        List<Map<String, Object>> resultado = new ArrayList<>();
-        
+    public List<Map<String, Object>> getConsolidadoNotasPorEstudiante(String userId) {
+    List<Grade> grades = gradeRepository.findByUserId(userId); // assumes method exists
+    List<Map<String, Object>> result = new ArrayList<>();
 
+    // Group grades by subjectId
+    Map<String, List<Map<String, Object>>> subjectMap = new HashMap<>();
 
+    for (Grade grade : grades) {
+        Activity activity = activityRepository.findById(grade.getActivityId()).orElse(null);
+        if (activity == null) continue;
 
-        return resultado;
+        ActivityType activityType = activityTypeRepository.findById(activity.getTypeId()).orElse(null);
+
+        Map<String, Object> activityData = new HashMap<>();
+        activityData.put("activityId", activity.getId());
+        activityData.put("name", activity.getName());
+        activityData.put("description", activity.getDescription());
+        activityData.put("type", activityType != null ? activityType.getName() : "Unknown");
+        activityData.put("score", grade.getScore());
+
+        String subjectId = activity.getSubjectId();
+        subjectMap.computeIfAbsent(subjectId, k -> new ArrayList<>()).add(activityData);
     }
+
+    // Format result
+    for (Map.Entry<String, List<Map<String, Object>>> entry : subjectMap.entrySet()) {
+        Map<String, Object> subjectData = new HashMap<>();
+        subjectData.put("subjectId", entry.getKey());
+        subjectData.put("activities", entry.getValue());
+        result.add(subjectData);
+    }
+
+    return result;
+}
+
 }

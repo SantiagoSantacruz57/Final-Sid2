@@ -14,7 +14,8 @@ import lombok.NoArgsConstructor;
 public class Activity {
     @Id
     private String id;
-    private String type;
+    private String subjectId;
+    private String typeId;
     private String name;
     private String description;
     private String percentage;

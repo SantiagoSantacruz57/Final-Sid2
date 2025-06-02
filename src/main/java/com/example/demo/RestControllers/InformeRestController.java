@@ -20,6 +20,12 @@ public class InformeRestController {
         return informeService.getConsolidadoNotasPorEstudiante();
     }
 
+    @GetMapping("/consolidado/{userId}")
+    public List<Map<String, Object>> obtenerConsolidadoNotas(@PathVariable String userId) {
+        return informeService.getConsolidadoNotasPorEstudiante(userId);
+    }
+
+
     // Informe 2: Nota mínima requerida
     @GetMapping("/nota-minima")
     public List<Map<String, Object>> obtenerNotaMinimaRequerida() {
