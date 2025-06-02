@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe Nota Mínima</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="body-bg">
+    <div class="container">
+        <h1 class="title">Notas mínimas requeridas para aprobar</h1>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Estudiante</th>
+                    <th>Actividades restantes</th>
+                    <th>Nota mínima necesaria</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="fila : ${notaMinima}">
+                    <td th:text="${fila.estudiante}"></td>
+                    <td th:text="${fila.actividadesRestantes}"></td>
+                    <td th:text="${fila.notaMinimaNecesaria}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
