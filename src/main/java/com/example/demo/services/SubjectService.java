@@ -11,7 +11,15 @@ import com.example.demo.repositories.SubjectRepository;
 @Service
 public class SubjectService {
     
-    @Autowired 
+    @Autowired
     private SubjectRepository repository;
-    public List<Subject> findAll() { return repository.findAll(); }
+
+    public List<Subject> getAllSubjects() {
+        return repository.findAll();
+    }
+
+    public Subject getSubjectByCode(String code) {
+        return repository.findById(code)
+            .orElseThrow(() -> new RuntimeException("Materia no encontrada"));
+    }
 }

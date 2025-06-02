@@ -10,11 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.Subject;
 import com.example.demo.services.SubjectService;
 
-@RestController
-@RequestMapping("/subjects")
+@RestController("subjectRestController")
+@RequestMapping("/api/subjects")
 public class SubjectController {
     
     @Autowired 
     private SubjectService service;
-    @GetMapping public List<Subject> list() { return service.findAll(); }
+
+    @GetMapping
+    public List<Subject> list() {
+        return service.getAllSubjects();
+    }
 }

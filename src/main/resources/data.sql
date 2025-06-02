@@ -1,5 +1,6 @@
 -- Truncate all tables with CASCADE to remove FK dependencies safely
 TRUNCATE TABLE
+    USER_SUBJECTS,
     GROUPS,
     SUBJECTS,
     PROGRAMS,
@@ -11,7 +12,8 @@ TRUNCATE TABLE
     CAMPUSES,
     CITIES,
     DEPARTMENTS,
-    COUNTRIES
+    COUNTRIES,
+    USERS
 CASCADE;
 
 -- Disable triggers (foreign key constraints)
@@ -24,8 +26,16 @@ ALTER TABLE FACULTIES DISABLE TRIGGER ALL;
 ALTER TABLE GROUPS DISABLE TRIGGER ALL;
 ALTER TABLE PROGRAMS DISABLE TRIGGER ALL;
 ALTER TABLE CAMPUSES DISABLE TRIGGER ALL;
+ALTER TABLE USER_SUBJECTS DISABLE TRIGGER ALL;
+ALTER TABLE USERS DISABLE TRIGGER ALL;
 
-
+-- Insert Users
+INSERT INTO USERS (id, name, password) VALUES
+(1, 'estudiante1', '12345'),
+(2, 'estudiante2', '12345'),
+(3, 'estudiante3', '12345'),
+(4, 'estudiante4', '12345'),
+(5, 'estudiante5', '12345');
 
 -- Insert Countries
 INSERT INTO COUNTRIES (code, name) VALUES
@@ -90,28 +100,60 @@ INSERT INTO AREAS (code, name, faculty_code, coordinator_id) VALUES
 -- Insert Programs
 INSERT INTO PROGRAMS (code, name, area_code) VALUES
 (1, 'Psicología', 1),
-(2, 'Ingeniería de Sistemas', 2);
+(2, 'Ingeniería de Sistemas', 2),
+(3, 'Ingeniería Industrial', 2),
+(4, 'Ingeniería Civil', 2),
+(5, 'Ingeniería Electrónica', 2),
+(6, 'Ingeniería Mecánica', 2);
 
 -- Insert Subjects
 INSERT INTO SUBJECTS (code, name, program_code) VALUES
-('S101', 'Psicología General', 1),
-('S102', 'Cálculo I', 2),
-('S103', 'Programación', 2),
-('S104', 'Estructuras de Datos', 2),
-('S105', 'Bases de Datos', 2),
-('S106', 'Redes de Computadores', 2),
-('S107', 'Sistemas Operativos', 2),
-('S108', 'Algoritmos Avanzados', 2);
+-- Psicología
+('PSI-1001', 'Psicología General', 1),
+('PSI-1002', 'Psicología del Desarrollo', 1),
+('PSI-2001', 'Psicología Social', 1),
+('PSI-2002', 'Psicología Clínica', 1),
+
+-- Ingeniería de Sistemas
+('ISIS-1001', 'Introducción a la Programación', 2),
+('ISIS-1002', 'Fundamentos de Programación', 2),
+('ISIS-2001', 'Estructuras de Datos', 2),
+('ISIS-2002', 'Bases de Datos', 2),
+('ISIS-3001', 'Desarrollo Web', 2),
+('ISIS-3002', 'Desarrollo Móvil', 2),
+('ISIS-4001', 'Inteligencia Artificial', 2),
+('ISIS-4002', 'Machine Learning', 2),
+
+-- Ingeniería Industrial
+('IND-1001', 'Introducción a la Ingeniería Industrial', 3),
+('IND-1002', 'Estadística Descriptiva', 3),
+('IND-2001', 'Investigación de Operaciones', 3),
+('IND-2002', 'Gestión de Calidad', 3),
+
+-- Ingeniería Civil
+('CIV-1001', 'Introducción a la Ingeniería Civil', 4),
+('CIV-1002', 'Mecánica de Materiales', 4),
+('CIV-2001', 'Estructuras', 4),
+('CIV-2002', 'Hidráulica', 4),
+
+-- Ingeniería Electrónica
+('ELE-1001', 'Introducción a la Ingeniería Electrónica', 5),
+('ELE-1002', 'Circuitos Eléctricos', 5),
+('ELE-2001', 'Electrónica Digital', 5),
+('ELE-2002', 'Microcontroladores', 5),
+
+-- Ingeniería Mecánica
+('MEC-1001', 'Introducción a la Ingeniería Mecánica', 6),
+('MEC-1002', 'Termodinámica', 6),
+('MEC-2001', 'Mecánica de Fluidos', 6),
+('MEC-2002', 'Diseño Mecánico', 6);
 
 
 -- Insert Groups
 INSERT INTO GROUPS (number, semester, subject_code, professor_id) VALUES
-(1, '2023-2', 'S101', '1001'),
-(2, '2023-2', 'S102', '1003'),
-(3, '2023-2', 'S103', '1004');
-
-
-
+(1, '2023-2', 'PSI-1001', '1001'),
+(2, '2023-2', 'ISIS-1001', '1003'),
+(3, '2023-2', 'ISIS-1002', '1004');
 
 -- Re-enable triggers (foreign key constraints)
 ALTER TABLE AREAS ENABLE TRIGGER ALL;
@@ -123,4 +165,6 @@ ALTER TABLE FACULTIES ENABLE TRIGGER ALL;
 ALTER TABLE GROUPS ENABLE TRIGGER ALL;
 ALTER TABLE PROGRAMS ENABLE TRIGGER ALL;
 ALTER TABLE CAMPUSES ENABLE TRIGGER ALL;
+ALTER TABLE USER_SUBJECTS ENABLE TRIGGER ALL;
+ALTER TABLE USERS ENABLE TRIGGER ALL;
 
